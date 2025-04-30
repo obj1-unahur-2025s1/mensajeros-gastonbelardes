@@ -1,9 +1,15 @@
-import example.pepita
+import mensajeros.*
+import mensajeria.*
 
-describe "group of tests for pepita" {
 
-  test "pepita has initial energy" {
-    assert.equals(100, pepita.energy())
-  }
+test "facturacion" {
+    empresa.enviar(paquete)
+    empresa.enviar(paquetito)
+    empresa.enviar(paqueton)
+    assert.equals(50, empresa.facturacion())
+}
 
+test "facturacion con paqueton no pagado" {
+    empresa.enviar(paqueton)
+    assert.equals(0, empresa.facturacion())
 }
